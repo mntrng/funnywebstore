@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { Container, Segment, Menu, Message, Icon } from "semantic-ui-react";
 import React, { useState } from 'react';
 import './App.css';
@@ -9,7 +8,7 @@ import { useFetchData } from './hooks/useFetchData';
 const App: React.FC = () => {
 
   const [page, setPage] = useState<string>('home');
-  const { loading, productData, stockData, error } = useFetchData();
+  const { productLoading, stockLoading, productData, stockData, error } = useFetchData();
 
   return (
         <Container className="App">
@@ -38,7 +37,7 @@ const App: React.FC = () => {
             </Menu>
           </Segment>
 
-          {loading && <Message icon>
+          {productLoading && stockLoading && <Message icon>
                         <Icon name='circle notched' loading />
                           <Message.Content>
                             <Message.Header>Just one second</Message.Header>
@@ -47,13 +46,16 @@ const App: React.FC = () => {
                       </Message>}
 
           {page === 'gloves' && stockData && <ProductListPage productData = { productData?.gloves } 
-                                                        loading = { loading } 
+                                                        productLoading = { productLoading } 
+                                                        stockLoading = { stockLoading } 
                                                         stockData = { stockData }/>}
-          {page === 'facemasks' && stockData && <ProductListPage productData = { productData?.faceMasks } 
-                                                        loading = { loading } 
+          {page === 'facemasks' && stockData && <ProductListPage productData = { productData?.facemasks } 
+                                                        productLoading = { productLoading } 
+                                                        stockLoading = { stockLoading } 
                                                         stockData = { stockData }/>}
           {page === 'beanies' && stockData && <ProductListPage productData = { productData?.beanies } 
-                                                        loading = { loading } 
+                                                        productLoading = { productLoading } 
+                                                        stockLoading = { stockLoading } 
                                                         stockData = { stockData }/>}
 
           {error && <Message negative>

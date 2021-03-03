@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/prefer-regexp-exec */
 import React from 'react';
 import { Product } from '../../types';
 import { Label, List, SemanticCOLORS } from "semantic-ui-react";

@@ -14,6 +14,6 @@ export interface StockInfo {
 
 export interface ProductData {
     gloves: Product[]
-    faceMasks: Product[]
+    facemasks: Product[]
     beanies: Product[]
 }

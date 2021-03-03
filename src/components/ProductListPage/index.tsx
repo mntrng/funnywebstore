@@ -5,13 +5,14 @@ import IndividualProduct from '../IndividualProduct';
 
 interface ProductDataProps {
     productData: Product[] | undefined
-    loading: boolean
+    productLoading: boolean
+    stockLoading: boolean
     stockData: Map<string, StockInfo>
 }
 
-const ProductListPage: React.FC<ProductDataProps> = ({ productData, loading, stockData }) => {
+const ProductListPage: React.FC<ProductDataProps> = ({ productData, productLoading, stockLoading, stockData }) => {
 
-    if (productData && !loading) {
+    if (productData && !stockLoading && !productLoading) {
         const Row = (props: ListChildComponentProps) => {
             const { index, style } = props;
             const stockInfo = stockData.get(productData[index].id);

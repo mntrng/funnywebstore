@@ -1,1 +1,1 @@
-Demo: https://coolwebstore.herokuapp.com/
+Demo: https://funnywebstore.netlify.app
